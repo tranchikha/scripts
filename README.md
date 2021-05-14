@@ -1,7 +1,9 @@
 # scripts
 Includes some scripts for Android testing
 
-1. Change default tmp path
+[1]: Script build_Khronos_CTS.sh is used for https://github.com/KhronosGroup/VK-GL-CTS. Branch: **vulkan-cts-1.2.5**
+
+1. Change default tmp path (note for [1])
 
 * If your root disk is full, please manually your tmp path as below:
 <pre>
