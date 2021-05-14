@@ -8,7 +8,7 @@ wget https://dl.google.com/android/repository/commandlinetools-linux-7302050_lat
 unzip commandlinetools-linux-7302050_latest.zip
 
 # SDK download
-$WORK_DIR/cmdline-tools/bin/sdkmanager --sdk_root=$WORK_DIR tools platform-tools 'build-tools;25.0.2' 'platforms;android-29'
+$WORK_DIR/cmdline-tools/bin/sdkmanager --sdk_root=$WORK_DIR tools platform-tools 'build-tools;25.0.2' 'platforms;android-28'
 
 # NDK download
 
