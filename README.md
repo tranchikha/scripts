@@ -20,3 +20,14 @@ index a5fce35bd..808bc8f54 100644
 +       return os.path.join("/data/04_VK_CTS/tmpdir_path/", "deqp-android-build")
 </pre>
 * By default, function **getDefaultBuildRoot** will get default tmp path of your PC. To custom tmp directory, please change /data/04_VK_CTS/tmpdir_path/ with your expected directory.
+
+[2]: Build options
+
+There are 2 build options which are supported now.
+
+1: VULKAN
+2: OPENGLES
+
+User could only choose one of them and run below command to build:
+For 1: ./build_Khronos_CTS.sh VULKAN
+For 2: ./build_Khronos_CTS.sh OPENGLES
