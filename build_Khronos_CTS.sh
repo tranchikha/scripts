@@ -36,7 +36,7 @@ fi
 if [ ${TARGET} = "VULKAN" ] ; then
 
 # Checkout branch
-git checkout TAG_vulkan-cts-1.2.5.0 tags/vulkan-cts-1.2.5.0
+git checkout -b TAG_vulkan-cts-1.2.5.0 tags/vulkan-cts-1.2.5.0
 
 # Fetch dependencies
 python3 external/fetch_sources.py
@@ -45,6 +45,9 @@ python3 external/fetch_sources.py
 python3 scripts/android/build_apk.py --sdk $SDK_DIR --ndk $NDK_DIR
 
 else # !VULKAN
+
+# Download required tool
+$WORK_DIR/cmdline-tools/bin/sdkmanager --sdk_root=$WORK_DIR 'platforms;android-22'
 
 # Checkout branch
 git checkout -b TAG_opengl-es-cts-3.2.6.2 tags/opengl-es-cts-3.2.6.2
