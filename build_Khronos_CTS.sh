@@ -36,7 +36,7 @@ fi
 if [ ${TARGET} = "VULKAN" ] ; then
 
 # Checkout branch
-git checkout TAG_vulkan-cts-1.2.5 tags/vulkan-cts-1.2.5.0
+git checkout TAG_vulkan-cts-1.2.5.0 tags/vulkan-cts-1.2.5.0
 
 # Fetch dependencies
 python3 external/fetch_sources.py
