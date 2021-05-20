@@ -25,9 +25,10 @@ index a5fce35bd..808bc8f54 100644
 
 There are 2 build options which are supported now.
 
-1: VULKAN
-2: OPENGLES
+* 1: VULKAN
+* 2: OPENGLES
 
 User could only choose one of them and run below command to build:
-For 1: ./build_Khronos_CTS.sh VULKAN
-For 2: ./build_Khronos_CTS.sh OPENGLES
+* For 1: ./build_Khronos_CTS.sh VULKAN
+* For 2: ./build_Khronos_CTS.sh OPENGLES
+* If nothing is input or input wrong target, print warning and choose OPENGLES as default build target
