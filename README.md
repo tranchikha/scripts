@@ -32,3 +32,20 @@ User could only choose one of them and run below command to build:
 * For 1: ./build_Khronos_CTS.sh VULKAN
 * For 2: ./build_Khronos_CTS.sh OPENGLES
 * If nothing is input or input wrong target, print warning and choose OPENGLES as default build target
+
+[3] Troubleshooting
+
+1. Can't run OPENGLES test
+* Test command: am start -n org.khronos.gl_cts/org.khronos.cts.ES32Activity -e logdir "/sdcard/logs" -e verbose "true"
+* Log:
+<pre>
+05-21 00:12:36.208 26943 26959 I dEQP    : Writing test log into /sdcard/logs/configs.qpa
+05-21 00:12:36.208 26943 26959 I dEQP    : ERROR: Unable to open test log output file '/sdcard/logs/configs.qpa'.
+05-21 00:12:36.209 26943 26959 I dEQP    : RenderThread: Failed to open test log file '/sdcard/logs/configs.qpa'
+</pre>
+* Root cause: Folder /sdcard/logs/ is not existed on device yet.
+* Solution: Create folder /sdcard/logs/ (mkdir -pv /sdcard/logs/)
+
+[4] Android Khronos test command:
+* https://github.com/KhronosGroup/VK-GL-CTS/blob/master/external/openglcts/README.md#android-1
+
