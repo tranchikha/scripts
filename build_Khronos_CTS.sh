@@ -22,6 +22,13 @@ export SDK_DIR=$WORK_DIR
 
 git clone https://github.com/KhronosGroup/VK-GL-CTS
 
+# Prepare output directory
+
+mkdir -pv $WORK_DIR/output_VK-GL-CTS
+export out_dir=$WORK_DIR/output_VK-GL-CTS
+
+# Download Khronos test source
+
 cd $WORK_DIR/VK-GL-CTS
 
 export TARGET=$1
@@ -38,6 +45,8 @@ if [ ${TARGET} = "OPENGLES" ] ; then
 $WORK_DIR/cmdline-tools/bin/sdkmanager --sdk_root=$WORK_DIR 'platforms;android-22'
 fi
 
+echo "Start building ${TARGET} at `date`" >> $out_dir/build_${TARGET}.txt
+
 if [ ${TARGET} = "VULKAN" ] ; then
 
 # Checkout branch
@@ -45,6 +54,9 @@ git checkout -b TAG_vulkan-cts-1.2.5.0 tags/vulkan-cts-1.2.5.0
 
 # Fetch dependencies
 python3 external/fetch_sources.py
+
+# Set custom output directory
+patch -Np1 < $WORK_DIR/0001-VK-GL-CTS-Custom-output-directory.patch
 
 # Build APK
 python3 scripts/android/build_apk.py --sdk $SDK_DIR --ndk $NDK_DIR
@@ -57,10 +69,15 @@ git checkout -b TAG_opengl-es-cts-3.2.6.2 tags/opengl-es-cts-3.2.6.2
 # Fetch dependencies
 python3 external/fetch_sources.py
 
+# Set custom output directory
+patch -Np1 < $WORK_DIR/0001-VK-GL-CTS-Custom-output-directory.patch
+
 # Build APK
 python3 scripts/android/build_apk.py --target=openglcts --sdk $SDK_DIR --ndk $NDK_DIR
 
 fi
+
+echo "Finish building ${TARGET} at `date`" >> $out_dir/build_${TARGET}.txt
 
 # Install APK (optional)
 

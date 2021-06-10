@@ -1,0 +1,26 @@
+From 63985bc33a63237922d0a219a825b78eeae538a7 Mon Sep 17 00:00:00 2001
+From: Kha Tran <khab1304690@gmail.com>
+Date: Thu, 10 Jun 2021 14:16:40 +0700
+Subject: [PATCH] VK-GL-CTS: Custom output directory
+
+Signed-off-by: Kha Tran <khab1304690@gmail.com>
+---
+ scripts/android/build_apk.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/android/build_apk.py b/scripts/android/build_apk.py
+index 4534a1eaf..fae03d690 100644
+--- a/scripts/android/build_apk.py
++++ b/scripts/android/build_apk.py
+@@ -884,7 +884,7 @@ def findSDK ():
+ 		return None
+ 
+ def getDefaultBuildRoot ():
+-	return os.path.join(tempfile.gettempdir(), "deqp-android-build")
++	return os.path.join(os.environ['out_dir'], "deqp-android-build")
+ 
+ def parseArgs ():
+ 	nativeBuildTypes	= ['Release', 'Debug', 'MinSizeRel', 'RelWithAsserts', 'RelWithDebInfo']
+-- 
+2.30.2
+
